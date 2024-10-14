@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --main-color : #21BF48;
+    --sub-color : #767676;
+    --back-color : #F2F2F2;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+body {
+    font-family:'SpoqaHanSansNeo-Regular';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*header*/
+header {
+    display: flex;
+    height: 90px;
+    align-items: center;
+}
+
+header h1 img {
+    width: 124px;
+    height: 38px;
+}
+
+header form > input {
+    width: 400px;
+    height: 46px;
+    margin-left: 30px;
+    border: 2px solid var(--main-color);
+    border-radius: 50px;
+    color: var(--sub-color);
+    background-image: url(/assets/search.png);
+    background-repeat: no-repeat;
+    background-position: center right 22px;
+    background-size: 28px;
+}
+
+header form > input::placeholder {
+    padding-left: 22px;
+}
+
+/*nav*/
+header nav ul {
+    display: flex;
+    gap: 26px;
+    margin-left: 598px;
+}
+
+header nav ul li button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+header nav ul li button p {
+    color: var(--sub-color);
+    font-size: 12px;
+}
+
+
+/*section*/
+body > section{
+    background-color: var(--back-color);
+    height: 500px;
+    width: 100%;
+    background-image: url(/assets/icon-swiper-1.svg), url(/assets/icon-swiper-2.svg);
+    background-repeat: no-repeat;
+    background-position: center left 56px, center right 56px;
+}
+
+/*main*/
+main section {
+    margin-top: 80px;
+}
+
+main section .item-top ul{
+    display: flex;
+    justify-content:center;
+    gap: 70px; 
+}
+
+main section .item-bottom ul{
+    display: flex;
+    justify-content:flex-start;
+    gap: 70px;
+    margin-top: 78px; 
+}
+
+main .info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+main .seller{
+    color: var(--sub-color);
+}
+
+main .product{
+    font-size: 18px;
+}
+
+main .price span:nth-child(1) {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/*footer*/
+footer {
+    width: 100%;
+    height: 298px;
+    background-color: var(--back-color);
+    margin-top: 180px;
+}
+
+/*footer*/
+/*section1*/
+footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 525px;
+    margin-top: 54px;
+}
+
+footer div section:nth-child(1) ul {
+    display: flex;
+}
+
+footer div section:nth-child(1) ul li a {
+    font-size: 14px;
+}
+
+footer div section:nth-child(1) ul li a::before{
+    content: "|";
+    margin:auto 14px;
+}
+
+footer div section:nth-child(1) ul li:first-child a:before{
+    content: none;
+}
+
+
+/*section2*/
+footer div section:nth-child(2) ul {
+    display: flex;
+    gap: 14px;
+}
+
+hr {
+    width: 1280px;
+    height: 1px;
+    color: #c4c4c4;
+    margin: 30px auto;
+}
+
+/*address*/
+footer address {
+    color: var(--sub-color);
+    font-size: 14px;
+    line-height: 24px;
+    padding-left: 16.7%;
+}
+
+footer address .companyName{
+    font-weight: bold;
+    color: #4f4f4f;
+}
+
+footer address span {
+    display: flex;
+}
+
+footer .category::before {
+    content: "|";
+    margin : auto 5px;
+}
+
+footer address span dt::after {
+    content: "";
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
