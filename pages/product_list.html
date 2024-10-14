@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HODU 페이지</title>
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/list.css">
 </head>
 <body>
     <!--비회원 페이지-->
@@ -12,8 +14,8 @@
             <img src="/assets/Logo-hodu.png" alt="HODU">
         </h1>
         <form action="" method="get">
-            <label for="">상품 검색하기</label>
-            <input type="text" placeholder="상품을 검색해보세요!">
+            <label for="search" class="sr-only">상품 검색하기</label>
+            <input type="text" name="search" id="seach" placeholder="상품을 검색해보세요!">
             <button type="submit" class="sr-only"></button>
         </form>
         <nav>
@@ -27,114 +29,145 @@
                 <li>
                     <button>
                         <img src="/assets/icon-user.svg" alt="">
-                        <p>마이페이지</p>
+                        <p>로그인</p>
                     </button>
                 </li>
             </ul>
         </nav>
     </header>
+    <section>
+        <h2 class="sr-only">둘러보기</h2>
+    </section>
     <main>
         <section>
             <h2 class="sr-only">상품소개</h2>
+            <div class="item-top">
                 <ul>
                     <li>
                         <img src="/assets/pouch.png" alt="노트북 파우치">
-                        <div>
-                            <p>우당탕탕 라이캣의 실험실</p>
-                            <p>Hack Your Life 개발자 노트북 파우치</p>
-                            <p>29,000원</p>
+                        <div class="info">
+                            <p class="seller">우당탕탕 라이캣의 실험실</p>
+                            <p class="product">Hack Your Life 개발자 노트북 파우치</p>
+                            <div class="price">
+                                <span>29,000</span>
+                                <span>원</span>
+                            </div>
                         </div>
                     </li>
                     <li>
                         <img src="/assets/developer_keychain.png" alt="개발자 키링">
-                        <div>
-                            <p>제주코딩베이스캠프</p>
-                            <p>네 개발잡니다 개발자키링 금속키링</p>
-                            <p>29,000원</p>
+                        <div class="info">
+                            <p class="seller">제주코딩베이스캠프</p>
+                            <p class="product">네 개발잡니다 개발자키링 금속키링</p>
+                            <div class="price">
+                                <span>29,000</span>
+                                <span>원</span>
+                            </div>
                         </div>
                     </li>
                     <li>
                         <img src="/assets/blanket.png" alt="개발자 무릎담요">
-                        <div>
-                            <p>백엔드글로벌</p>
-                            <p>딥러닝 개발자 무릎 담요</p>
-                            <p>29,000원</p>
+                        <div class="info">
+                            <p class="seller">백엔드글로벌</p>
+                            <p class="product">딥러닝 개발자 무릎 담요</p>
+                            <div class="price">
+                                <span>29,000</span>
+                                <span>원</span>
+                            </div>
                         </div>
                     </li>
+                </ul>
+            </div>
+            <div class="item-bottom">
+                <ul>
                     <li>
                         <img src="/assets/stickers.png" alt="스티커 팩">
-                        <div>
-                            <p>코딩앤유</p>
-                            <p>우당탕탕 라이캣의 실험실 스티커 팩</p>
-                            <p>29,000원</p>
+                        <div class="info">
+                            <p class="seller">코딩앤유</p>
+                            <p class="product">우당탕탕 라이캣의 실험실 스티커 팩</p>
+                            <div class="price">
+                                <span>29,000</span>
+                                <span>원</span>
+                            </div>
                         </div>
                     </li>
                     <li>
                         <img src="/assets/gary_keychain.png" alt="개리씨 키링">
-                        <div>
-                            <p>파이썬스쿨</p>
-                            <p>버그를 Java라 버그잡는 개리씨 키링 개발자키링...</p>
-                            <p>29,000원</p>
+                        <div class="info">
+                            <p class="seller">파이썬스쿨</p>
+                            <p class="product">버그를 Java라 버그잡는 개리씨 키링 개발자키링...</p>
+                            <div class="price">
+                                <span>29,000</span>
+                                <span>원</span>
+                            </div>
                         </div>
                     </li>
                 </ul>
+            </div>
         </section>
     </main>
     <footer>
-        <section>
-            <h2 class="sr-only">페이지 상세정보</h2>
+        <div>
+            <section>
+                <h2 class="sr-only">페이지 상세정보</h2>
+                    <ul>
+                        <li>
+                            <a href="#">호두샵 소개</a>
+                        </li>
+                        <li>
+                            <a href="#">이용약관</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보처리방침</a>
+                        </li>
+                        <li>
+                            <a href="#">전자금융거래약관</a>
+                        </li>
+                        <li>
+                            <a href="#">청소년보호정책</a>
+                        </li>
+                        <li>
+                            <a href="#">제휴문의</a>
+                        </li>
+                    </ul>
+            </section>
+            <section class="SNS 바로가기">
                 <ul>
                     <li>
-                        <a href="">호두샵 소개</a>
+                        <a href="">
+                            <img src="/assets/icon-insta.svg" alt="인스타그램 바로가기">
+                        </a>
                     </li>
                     <li>
-                        <a href="">이용약관</a>
+                        <a href="">
+                            <img src="/assets/icon-fb.svg" alt="페이스북 바로가기">
+                        </a>
                     </li>
                     <li>
-                        <a href="">개인정보처리방침</a>
-                    </li>
-                    <li>
-                        <a href="">전자금융거래약관</a>
-                    </li>
-                    <li>
-                        <a href="">청소년보호정책</a>
-                    </li>
-                    <li>
-                        <a href="">제휴문의</a>
+                        <a href="">
+                            <img src="/assets/icon-yt.svg" alt="유투브 바로가기">
+                        </a>
                     </li>
                 </ul>
-        </section>
-        <section class="SNS 바로가기">
-            <ul>
-                <li>
-                    <a href="">
-                        <img src="/assets/icon-insta.svg" alt="인스타그램 바로가기">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/assets/icon-fb.svg" alt="페이스북 바로가기">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/assets/icon-yt.svg" alt="유투브 바로가기">
-                    </a>
-                </li>
-            </ul>
-        </section>
+            </section>
+        </div>
+        <hr>
         <address>
             <h2 class="sr-only">기업정보</h2>
             <dl>
                 <dt class="sr-only">기업이름</dt>
-                <dd>(주)HODU SHOP</dd>
+                <dd class="companyName">(주)HODU SHOP</dd>
                 <dt class="sr-only">기업주소</dt>
                 <dd>제주특별자치도 제주시 동광고 137 제주코딩베이스캠프</dd>
-                <dt>사업자번호 :</dt>
-                <dd>000-0000-0000</dd>
-                <dd>통신판매업</dd>
-                <dt>대표 :</dt>
-                <dd>김호두</dd>
+                <span>
+                    <dt>사업자번호 :</dt>
+                    <dd>000-0000-0000</dd>
+                    <dd class="category">통신판매업</dd>
+                </span>
+                <span>
+                    <dt>대표 :</dt>
+                    <dd>김호두</dd>
+                </span>
             </dl>
         </address>
     </footer>
