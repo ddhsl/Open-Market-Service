@@ -1,0 +1,225 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --main-color : #21BF48;
+    --sub-color : #767676;
+    --back-color : #F2F2F2;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+body {
+    font-family:'SpoqaHanSansNeo-Regular';
+    display: flex;
+    justify-content: center;
+    color: var(--sub-color)
+}
+
+article section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article h1 {
+    text-align: center;
+    margin-top: 70px;
+}
+
+article h1 img {
+    width: 238px;
+    height: 74px;
+}
+
+/*구매회원*/
+.buyer-btn, .seller-btn{
+    width: 275px;
+    height: 80px;
+    border: 1px solid #c4c4c4;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    margin: 0;
+    margin-top: 70px;
+}
+
+.buyer-btn {
+    margin-right: -4px;
+}
+
+article > button span {
+    position: relative;
+    top: -9px;
+}
+
+article section form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 550px;
+    border: 1px solid #c4c4c4;
+    border-radius: 0 10px 10px 10px;
+    position: relative;
+    top: -20px;
+    background-color: #fff;
+    padding: 20px 35px 36px;
+}
+
+.user label {
+    padding-bottom: 10px;
+}
+
+.userCheck {
+    display: flex;
+    gap: 12px;
+    align-items: last baseline;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+}
+
+input, .dropdown-btn, .dropdown-content  {
+    height: 54px;
+    border-radius: 5px;
+    border: 1px solid #c4c4c4;
+}
+
+.user input {
+    width: 346px;
+}
+
+.userCheck button {
+    width: 122px;
+    height: 54px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    background-color: var(--main-color);
+    font-size: 16px;
+}
+
+#pw, #name {
+    width: 480px;;
+}
+
+#pw {
+    background-image: url(/assets/icon-check-off.svg);
+    background-repeat: no-repeat;
+    background-position: right 13px center;
+}
+
+.nameLabel{
+    margin-top: 50px;
+}
+
+.dropdown-btn,.dropdown-content, #num2, #num3 {
+    width: 152px;
+}
+
+.dropdown:not(.dropdown-content) {
+    display: flex;
+    gap: 12px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown-btn span {
+    margin-left: 50px;
+    font-size: 16px;
+}
+
+.dropdown-btn img {
+    margin-left: 37px;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    z-index: 10;
+    height: 150px; 
+    overflow-y: auto;  
+}
+.dropdown-item {
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dropdown-content .dropdown-item {
+    padding: 10px;
+    padding-left: 0;
+    cursor: pointer;
+}
+
+.dropdown-btn:hover {
+    border-color: var(--main-color);
+}
+
+.dropdown-content .dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+article section > p {
+    margin: 14px auto 34px;
+    background-image: url(/assets/check-box.svg);
+    background-repeat: no-repeat;
+    background-position: left 2px;
+    line-height: 20.03px;
+    padding-left: 25px;
+
+}
+
+article section > p a {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.join {
+    width: 480px;
+    height: 60px;
+    background-color: #c4c4c4;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 110px;
+
+}
+
+
+
+/*판매회원*/
+article .seller-btn{
+    background-color: var(--back-color);
+}
