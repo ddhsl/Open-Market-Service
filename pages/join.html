@@ -20,7 +20,7 @@
         </button>
         
         <!--구매회원-->
-        <section>
+        <section class="joinForbuyer">
             <h2 class="sr-only">구매회원가입</h2>
             <form action="">
                 <div class="userCheck">
@@ -41,7 +41,7 @@
                 <div class="dropdown"> 
                     <button class="dropdown-btn">
                         <span>010</span>
-                        <img src="/assets/icon-up-arrow.svg" alt="" class="arrow">
+                        <img src="/assets/icon-down-arrow.svg" alt="" class="arrow">
                     </button>
                     <div class="dropdown-content">
                         <div class="dropdown-item" data-value="010">010</div>
@@ -60,39 +60,54 @@
         </section>
 
         <!--판매회원-->
-        <!-- <section>
+        <section class="joinForseller">
             <h2 class="sr-only">판매회원가입</h2>
             <form action="">
-                <label for="">아이디</label>
-                <input type="text">
-                <button>중복확인</button>
-                <label for="">비밀번호</label>
-                <input type="password">
-                <label for="">비밀번호 재확인</label>
-                <input type="password">
+                <div class="userCheck">
+                    <div class="user">
+                        <label for="id">아이디</label>
+                        <input type="text" id="id" name="id" required>
+                    </div>
+                    <button>중복확인</button>
+                </div>
+                <label for="pw">비밀번호</label>
+                <input type="password" id="pw" name="pw" required>
+                <label for="pw">비밀번호 재확인</label>
+                <input type="password" id="pw" name="pw" required>
 
-                <label for="">이름</label>
-                <input type="text" name="" id="">
+                <label for="name" class="nameLabel">이름</label>
+                <input type="text" name="name" id="name" required>
                 <p>휴대폰번호</p>
-                <select name="" id="">
-                    <option value="010" selected></option>
-                    <option value="011"></option>
-                    <option value="016"></option>
-                    <option value="017"></option>
-                    <option value="018"></option>
-                    <option value="019"></option>
-                </select>
-                <label for="">사업자 등록번호</label>
-                <input type="number">
-                <button>인증</button>
-                <label for="">스토어 이름</label>
-                <input type="text">
-                <label for="">이용약관 및 개인정보수집 동의</label>
-                <img src="/assets/check-box.svg" alt="동의하기">
-                <p>호두샵의 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 대한 내용을 확인하였고 동의합니다.</p>
-                <button type="submit">가입하기</button>
+                <div class="dropdown"> 
+                    <button class="dropdown-btn">
+                        <span>010</span>
+                        <img src="/assets/icon-down-arrow.svg" alt="" class="arrow">
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item" data-value="010">010</div>
+                        <div class="dropdown-item" data-value="011">011</div>
+                        <div class="dropdown-item" data-value="016">016</div>
+                        <div class="dropdown-item" data-value="017">017</div>
+                        <div class="dropdown-item" data-value="018">018</div>
+                        <div class="dropdown-item" data-value="019">019</div>
+                    </div>
+                    <input type="text" name="num2" id="num2">
+                    <input type="text" name="num3" id="num3">
+                </div>
+                <div class="companyCheck">
+                    <div class="company">
+                        <label for="businessNum">사업자 등록번호</label>
+                        <input type="text" id="businessNum" name="businessNum">
+                    </div>
+                        <button class="certify">인증</button>
+                </div>
+                <label for="store">스토어 이름</label>
+                <input type="text" id="store" name="store">
             </form>
-        </section> -->
+            <p>호두샵의 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 대한 내용을 확인하였고 동<br>의합니다.</p>
+            <button type="submit" class="join">가입하기</button>
+        </section> 
     </article>
 </body>
 </html>
+
