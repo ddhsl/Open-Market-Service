@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+:root {
+    --main-color : #21BF48;
+    --sub-color : #767676;
+    --back-color : #F2F2F2;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+body {
+    font-family:'SpoqaHanSansNeo-Regular';
+    color: var(--sub-color);
+    display: flex;
+    justify-content: center;
+}
+
+article h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+article h1 img {
+    width: 238px;
+    height: 74px;
+}
+
+/*구매회원*/
+.buyer-btn, .seller-btn{
+    width: 275px;
+    height: 80px;
+    border: 1px solid #c4c4c4;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    margin: 0;
+    margin-top: 70px;
+}
+
+.buyer-btn {
+    margin-right: -4px;
+}
+
+article button span {
+    position: relative;
+    top: -9px;
+}
+
+article section form {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    border: 1px solid #c4c4c4;
+    border-radius: 0 10px 10px 10px;
+    position: relative;
+    top: -20px;
+    background-color: #fff;
+}
+
+article section form input {
+    width: 480px;
+    height: 60px;
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+#id {
+    margin: 14px 35px 6px;
+}
+
+#pw {
+    margin: 0 35px;
+}
+
+article section form button {
+    width: 480px;
+    height: 60px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 36px 35px;
+}
+
+
+/*판매회원*/
+article .seller-btn{
+    background-color: var(--back-color);
+}
+
+
+/*회원가입,비밀번호*/
+article div ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /*원래 값이 30px에서 form의 top-20px 제외시킴*/
+}
+
+article div ul li a {
+    color: #333
+}
+
+article div ul li:first-child a::after {
+    content: "|";
+    margin: 0 14px;
+    color: #333;
+}
