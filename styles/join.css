@@ -62,9 +62,15 @@ article h1 img {
 
 .buyer-btn {
     margin-right: -4px;
+    position: relative;
+    z-index: 100;
+    background-color: #fff;
+    top: -10px;
+    border-bottom: 2px solid #fff;
+    height: 60px;
 }
 
-article > button span {
+.seller-btn span {
     position: relative;
     top: -9px;
 }
@@ -90,6 +96,7 @@ article section form {
     display: flex;
     gap: 12px;
     align-items: last baseline;
+    margin-top: 20px;
 }
 
 .user {
@@ -251,3 +258,13 @@ article .seller-btn{
     margin-top: 50px;
 }
 
+.storeName {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    gap: 10px;
+}
+
+.joinForseller{
+    display: none;
+}
