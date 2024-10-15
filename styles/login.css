@@ -56,9 +56,15 @@ article h1 img {
 
 .buyer-btn {
     margin-right: -4px;
+    background-color: #fff;
+    position: relative;
+    z-index: 100;
+    height: 60px;
+    top: -10px;
+    border-bottom: 2px solid #fff;
 }
 
-article button span {
+.seller-btn span {
     position: relative;
     top: -9px;
 }
