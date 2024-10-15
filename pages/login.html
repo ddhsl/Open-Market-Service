@@ -5,28 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/login.css">
 </head>
 <body>
     <article>
         <h1>
             <img src="/assets/Logo-hodu.png" alt="HODU">
         </h1>
-        <button>구매회원 로그인</button>
-        <button>판매회원 로그인</button>
+        <button class="buyer-btn">
+            <span>구매회원 로그인</span>
+        </button>
+        <button class="seller-btn">
+            <span>판매회원 로그인</span>
+        </button>
         
         <!--구매회원-->
         <section>
             <h2 class="sr-only">구매회원 로그인</h2>
-            <form action="">
-                <label for=""></label>
-                <input type="text" placeholder="아이디">
-                <input type="password" placeholder="비밀번호">
+            <form action="" method="get">
+                <label for="id" class="sr-only">아이디를 입력하세요</label>
+                <input type="text" name="id" id="id" placeholder="아이디" required>
+                <label for="pw" class="sr-only">비밀번호를 입력하세요</label>
+                <input type="password" name="pw" id="pw" placeholder="비밀번호" required>
                 <button type="submit">로그인</button>
             </form>
         </section>
+        <div>
+            <ul>
+                <li>
+                    <a href="">회원가입</a>
+                </li>
+                <li>
+                    <a href="">비밀번호 찾기</a>
+                </li>
+            </ul>
+        </div>
+
         
         <!--판매회원-->
-        <section>
+        <!-- <section>
             <h2 class="sr-only">판매회원 로그인</h2>
             <form action="">
                 <label for=""></label>
@@ -34,11 +51,7 @@
                 <input type="password" placeholder="비밀번호">
                 <button type="submit">로그인</button>
             </form>
-        </section>
-        <div>
-            <a href="">회원가입</a>
-            <a href="">비밀번호 찾기</a>
-        </div>
+        </section> -->
     </article>
 </body>
 </html>
