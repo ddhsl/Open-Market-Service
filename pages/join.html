@@ -5,48 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/join.css">
 </head>
 <body>
     <article>
         <h1>
             <img src="/assets/Logo-hodu.png" alt="HODU">
         </h1>
-        <button>구매회원가입</button>
-        <button>판매회원가입</button>
+        <button class="buyer-btn">
+            <span>구매회원가입</span>
+        </button>
+        <button class="seller-btn">
+            <span>판매회원가입</span>
+        </button>
         
         <!--구매회원-->
         <section>
             <h2 class="sr-only">구매회원가입</h2>
             <form action="">
-                <label for="">아이디</label>
-                <input type="text">
-                <button>중복확인</button>
-                <label for="">비밀번호</label>
-                <input type="password">
-                <label for="">비밀번호 재확인</label>
-                <input type="password">
+                <div class="userCheck">
+                    <div class="user">
+                        <label for="id">아이디</label>
+                        <input type="text" id="id" name="id" required>
+                    </div>
+                    <button>중복확인</button>
+                </div>
+                <label for="pw">비밀번호</label>
+                <input type="password" id="pw" name="pw" required>
+                <label for="pw">비밀번호 재확인</label>
+                <input type="password" id="pw" name="pw" required>
 
-                <label for="">이름</label>
-                <input type="text" name="" id="">
+                <label for="name" class="nameLabel">이름</label>
+                <input type="text" name="name" id="name" required>
                 <p>휴대폰번호</p>
-                <select name="" id="">
-                    <option value="010" selected></option>
-                    <option value="011"></option>
-                    <option value="016"></option>
-                    <option value="017"></option>
-                    <option value="018"></option>
-                    <option value="019"></option>
-                </select>
-
-                <label for="">이용약관 및 개인정보수집 동의</label>
-                <input type="checkbox">
-                <p>호두샵의 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 대한 내용을 확인하였고 동의합니다.</p>
-                <button type="submit">가입하기</button>
+                <div class="dropdown"> 
+                    <button class="dropdown-btn">
+                        <span>010</span>
+                        <img src="/assets/icon-up-arrow.svg" alt="" class="arrow">
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item" data-value="010">010</div>
+                        <div class="dropdown-item" data-value="011">011</div>
+                        <div class="dropdown-item" data-value="016">016</div>
+                        <div class="dropdown-item" data-value="017">017</div>
+                        <div class="dropdown-item" data-value="018">018</div>
+                        <div class="dropdown-item" data-value="019">019</div>
+                    </div>
+                    <input type="text" name="num2" id="num2">
+                    <input type="text" name="num3" id="num3">
+                </div>
             </form>
+            <p>호두샵의 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 대한 내용을 확인하였고 동<br>의합니다.</p>
+            <button type="submit" class="join">가입하기</button>
         </section>
 
         <!--판매회원-->
-        <section>
+        <!-- <section>
             <h2 class="sr-only">판매회원가입</h2>
             <form action="">
                 <label for="">아이디</label>
@@ -78,7 +92,7 @@
                 <p>호두샵의 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 대한 내용을 확인하였고 동의합니다.</p>
                 <button type="submit">가입하기</button>
             </form>
-        </section>
+        </section> -->
     </article>
 </body>
 </html>
