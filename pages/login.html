@@ -12,28 +12,29 @@
         <h1>
             <img src="/assets/Logo-hodu.png" alt="HODU">
         </h1>
-        <button class="buyer-btn">
+        <button class="buyer-login">
             <span>구매회원 로그인</span>
         </button>
-        <button class="seller-btn">
+        <button class="seller-login">
             <span>판매회원 로그인</span>
         </button>
         
         <!--구매회원-->
         <section>
             <h2 class="sr-only">구매회원 로그인</h2>
-            <form action="" method="get">
+            <form  method="post">
                 <label for="id" class="sr-only">아이디를 입력하세요</label>
-                <input type="text" name="id" id="id" placeholder="아이디" required>
+                <input type="text" name="id" id="id" placeholder="아이디">
                 <label for="pw" class="sr-only">비밀번호를 입력하세요</label>
-                <input type="password" name="pw" id="pw" placeholder="비밀번호" required>
-                <button type="submit">로그인</button>
+                <input type="password" name="pw" id="pw" placeholder="비밀번호">
+                <div class="alertMsg">아이디를 입력해 주세요.</div>
+                <button type="button" class="login">로그인</button>
             </form>
         </section>
         <div>
             <ul>
                 <li>
-                    <a href="">회원가입</a>
+                    <a href="join.html">회원가입</a>
                 </li>
                 <li>
                     <a href="">비밀번호 찾기</a>
@@ -41,7 +42,6 @@
             </ul>
         </div>
 
-        
         <!--판매회원-->
         <!-- <section>
             <h2 class="sr-only">판매회원 로그인</h2>
@@ -53,5 +53,6 @@
             </form>
         </section> -->
     </article>
+    <script src="/js/login.js"></script>
 </body>
 </html>
