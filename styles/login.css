@@ -41,7 +41,7 @@ article h1 img {
 }
 
 /*구매회원*/
-.buyer-btn, .seller-btn{
+.buyer-login, .seller-login{
     width: 275px;
     height: 80px;
     border: 1px solid #c4c4c4;
@@ -54,7 +54,7 @@ article h1 img {
     margin-top: 70px;
 }
 
-.buyer-btn {
+.buyer-login {
     margin-right: -4px;
     background-color: #fff;
     position: relative;
@@ -64,7 +64,7 @@ article h1 img {
     border-bottom: 2px solid #fff;
 }
 
-.seller-btn span {
+.seller-login span {
     position: relative;
     top: -9px;
 }
@@ -88,7 +88,7 @@ article section form input {
 }
 
 #id {
-    margin: 14px 35px 6px;
+    margin: 28px 35px 6px;
 }
 
 #pw {
@@ -106,9 +106,17 @@ article section form button {
     margin: 36px 35px;
 }
 
+.alertMsg {
+    color: #eb5757;
+    font-weight: 500;
+    margin-top: 26px;
+    margin-left: 36px;
+    display: none;
+}
+
 
 /*판매회원*/
-article .seller-btn{
+article .seller-login{
     background-color: var(--back-color);
 }
 
