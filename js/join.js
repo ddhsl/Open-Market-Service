@@ -1,9 +1,10 @@
-const id = document.querySelector('#id');
+const username = document.querySelector('#id');
 const password = document.querySelector('#pw');
 const pwCheck = document.querySelector('.pwCheck');
 const alertMsgs = document.querySelectorAll('.alertMsg');
 const inputs = document.querySelectorAll('input');
 const logo = document.querySelector('.logo');
+const fullName = document.querySelector('#name');
 
 logo.addEventListener('click', () => {
     window.location.href = '/pages/main.html'
@@ -27,7 +28,7 @@ inputs.forEach((input, index) => {
     // 다른 입력 필드에서 포커스가 변경될 때 유효성 검사
     input.addEventListener('blur', () => {
         // 아이디가 비어있지 않고 유효하지 않으면 오류 메시지 표시
-        if (input === id) {
+        if (input === username) {
             validateId(); // 아이디 유효성 검사
         }
         // 비밀번호 유효성 검사
@@ -61,18 +62,18 @@ const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\
 // 아이디 유효성 검사 함수
 function validateId() {
     const idAlertMsg = alertMsgs[0];
-    if (id.value.trim() === '') {
+    if (username.value.trim() === '') {
         idAlertMsg.style.display = 'none'; // 비어있을 경우 메시지 숨김
         return false;
     }
-    if (!idPattern.test(id.value.trim())) {
+    if (!idPattern.test(username.value.trim())) {
         idAlertMsg.style.display = 'block';
         idAlertMsg.textContent = '20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.';
-        id.classList.add('error'); // 오류 시 빨간 테두리 추가
+        username.classList.add('error'); // 오류 시 빨간 테두리 추가
         return false;
     } else {
         idAlertMsg.style.display = 'none';
-        id.classList.remove('error'); // 유효성 통과 시 기본 테두리 색으로 리셋
+        username.classList.remove('error'); // 유효성 통과 시 기본 테두리 색으로 리셋
         return true;
     }
 }
@@ -131,23 +132,44 @@ function validatePasswordCheck() {
 }
 
 // 블러 이벤트를 이용한 유효성 검사
-id.addEventListener('blur', validateId);
+username.addEventListener('blur', () => {
+    validateId();
+    updateJoinButtonState(); // 아이디 유효성 검사 후 버튼 상태 업데이트
+});
 password.addEventListener('blur', () => {
     if (validatePassword()) {
         validatePasswordCheck(); // 비밀번호가 올바른 경우에만 비밀번호 재확인 체크
     } else {
         alertMsgs[2].style.display = 'none'; // 비밀번호 유효성 실패 시, 비밀번호 재확인 메시지 숨김
     }
+    updateJoinButtonState(); // 비밀번호 유효성 검사 후 버튼 상태 업데이트
 });
-pwCheck.addEventListener('blur', validatePasswordCheck);
+pwCheck.addEventListener('blur', () => {
+    validatePasswordCheck();
+    updateJoinButtonState(); // 비밀번호 확인 유효성 검사 후 버튼 상태 업데이트
+});
 
 
-// 휴대폰 번호
+// 휴대폰 번호 유효성 검사
 const num1 = document.querySelector('.dropdown-btn');
 const dropdown = document.querySelector('.dropdown-content');
 const numbers = document.querySelectorAll('.dropdown-item');
 const num2 = document.querySelector('#num2');
 const num3 = document.querySelector('#num3');
+
+function validatePhoneNumber() {
+    return num2.value.trim() !== '' && num3.value.trim() !== ''; // 두 필드가 모두 채워져 있어야 함
+}
+
+
+// 이름 유효성 검사 함수
+function validateName() {
+    if (fullName.value.trim() === '') { // fullName의 값을 사용
+        return false; // 이름 필드가 비어있으면 유효하지 않음
+    }
+    return true; // 이름 필드가 채워져 있으면 유효함
+}
+
 
 // 드롭다운 버튼 클릭 시 드롭다운 표시/숨기기
 num1.addEventListener('click', () => {
@@ -172,40 +194,108 @@ document.addEventListener('click', (event) => {
 // num2, num3 인풋의 focus 및 blur 이벤트 처리
 [num2, num3].forEach(input => {
     input.addEventListener('focus', () => {
-        // 포커스가 있을 때 초록색 테두리로 변경
-        input.style.border = '1px solid #21BF48'; // 초록색 테두리
+        input.style.border = '1px solid #21BF48'; 
     });
 
     input.addEventListener('blur', () => {
-        // 포커스가 이동했을 때 기본 테두리 색으로 변경
-        input.style.border = '1px solid #c4c4c4'; // 기본 테두리 색상으로 돌아감
+        input.style.border = '1px solid #c4c4c4'; 
     });
 });
 
 
-//동의하기, 가입하기
+
+
+
+// 동의하기,가입하기
 const agreeBtn = document.querySelector('.agree');
+// const phone_number = `${num1.textContent}${num2.value}${num3.value}`;
 const joinBtn = document.querySelector('.join');
 
-// 클래스 추가 및 제거 함수
+
+// 동의하기 클릭 이벤트
 agreeBtn.addEventListener('click', () => {
     agreeBtn.classList.toggle('checked');
-    
-    // 체크 상태에 따라 joinBtn의 속성 및 스타일 변경
-    if (agreeBtn.classList.contains('checked') ) {
-        joinBtn.disabled = false; // disabled 속성 제거
-        joinBtn.style.backgroundColor = 'var(--main-color)'; // 메인 색상 적용
+    updateJoinButtonState(); // 조인 버튼 상태 업데이트
+});
+
+// 가입하기 클릭 이벤트
+joinBtn.addEventListener('click', () => {
+    updateJoinButtonState(); // 버튼 상태 업데이트 후 클릭 이벤트 처리
+    if (validateId() && validatePassword() && validatePasswordCheck() && agreeBtn.classList.contains('checked')) {
+        trySignUp(); 
     } else {
-        joinBtn.disabled = true; // disabled 속성 추가
-        joinBtn.style.backgroundColor = ''; // 기본 배경 색상으로 되돌리기
+        alert('모든 필드를 입력하세요.');
     }
+});
+
+// 각 입력 필드에 대한 입력 이벤트 처리
+inputs.forEach(input => {
+    input.addEventListener('input', updateJoinButtonState); // 모든 입력 필드에 대해 업데이트
+});
+[num2, num3].forEach(input => {
+    input.addEventListener('input', updateJoinButtonState); // 휴대폰 번호 입력 필드에 대해 업데이트
 });
 
 
 
+// 조인 버튼 상태 업데이트 함수
+function updateJoinButtonState() {
+    if (validateId() && validatePassword() && validatePasswordCheck() && 
+        agreeBtn.classList.contains('checked') && validateName() && validatePhoneNumber()) {
+        joinBtn.disabled = false;
+        joinBtn.style.backgroundColor = '#21bf48';
+    } else {
+        joinBtn.disabled = true;
+        joinBtn.style.backgroundColor = '#c4c4c4'; 
+    }
+}
 
+// 회원가입 요청 함수
+function trySignUp() {
+    const phone_number = `${num1.textContent}${num2.value}${num3.value}`; 
+    fetch('https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+            name: fullName.value,
+            phone_number: phone_number,
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('회원가입에 실패했습니다.'); 
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.username) {
+            const user = {
+                username: data.username,
+                name: data.name,
+                phone_number: data.phone_number,
+                user_type: data.user_type
+            };
 
-
-
+            console.log('Username:', user.username);
+            console.log('Name:', user.name);
+            console.log('Phone Number:', user.phone_number);
+            console.log('User Type:', user.user_type);
+            
+            alert('회원가입이 성공적으로 완료되었습니다!');
+            localStorage.setItem('user_info', JSON.stringify(user)); // 사용자 정보 저장
+            window.location.href = '/pages/login.html'; 
+        } else {
+            alert('회원가입에 실패했습니다. 다시 시도해 주세요.');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('서버 오류가 발생했습니다. 나중에 다시 시도해 주세요.');
+    });
+}
 
 
