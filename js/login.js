@@ -56,14 +56,13 @@ function tryLogin() {
         localStorage.setItem('access_token', data.access);
         localStorage.setItem('refresh_token', data.refresh);
 
-        //추가
         const user = data.user; 
         console.log('Username:', user.username);
         console.log('Name:', user.name);
         console.log('Phone Number:', user.phone_number);
         console.log('User Type:', user.user_type);
 
-        window.location.href = '/pages/product_list.html'; 
+        window.location.href = '/pages/main.html'; 
     } else if (data.error) {
         alert.style.display = 'block';
         alert.textContent = '아이디 또는 비밀번호가 일치하지 않습니다.';
