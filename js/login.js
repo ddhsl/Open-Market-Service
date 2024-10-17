@@ -4,6 +4,11 @@ const username = document.querySelector('#id');
 const password = document.querySelector('#pw');
 const loginBtn = document.querySelector('.login');
 const alert = document.querySelector('.alertMsg');
+const logo = document.querySelector('.logo');
+
+logo.addEventListener('click', () => {
+    window.location.href = '/pages/product_list.html'
+});
 
 // 로그인 타입 부여
 let loginType = '';
