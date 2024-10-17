@@ -10,6 +10,7 @@ logo.addEventListener('click', () => {
     window.location.href = '/pages/main.html'
 });
 
+
 // 각 필드에 대해 입력 여부 유효성 검사
 inputs.forEach((input, index) => {
     const alertMsg = alertMsgs[index]; // 해당 인덱스의 경고 메시지 선택
@@ -91,29 +92,31 @@ idCheckBtn.addEventListener('click', () => {
 // 아이디 중복 확인 함수
 function checkIdDuplicate(id) {
     const idAlertMsg = alertMsgs[0];
-    fetch(`https://estapi.openmarket.weniv.co.kr/accounts/validate-username/`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('중복 확인에 실패했습니다.');
-            }
-            return response.json();
+    fetch(`https://estapi.openmarket.weniv.co.kr/accounts/validate-username/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username.value,
         })
-        .then(data => {
-            if (data.available) {
-                idAlertMsg.style.display = 'block';
-                idAlertMsg.textContent = '멋진 아이디네요.:)';
-                idAlertMsg.style.color = '#21BF48'
-                username.classList.remove('error'); 
-            } else {
-                idAlertMsg.style.display = 'block';
-                idAlertMsg.textContent = '이미 사용 중인 아이디입니다.';
-                username.classList.add('error'); 
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('서버 오류가 발생했습니다. 나중에 다시 시도해 주세요.');
-        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.available) {
+            idAlertMsg.style.display = 'block';
+            idAlertMsg.textContent = '멋진 아이디네요.:)';
+            idAlertMsg.style.color = '#21BF48';
+            username.classList.remove('error');
+        } else {
+            idAlertMsg.style.display = 'block';
+            idAlertMsg.textContent = '이미 사용 중인 아이디입니다.';
+            username.classList.add('error');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
 
 
@@ -302,12 +305,7 @@ function trySignUp() {
             phone_number: phone_number,
         })
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('회원가입에 실패했습니다.'); 
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
         if (data.username) {
             const user = {
@@ -331,7 +329,6 @@ function trySignUp() {
     })
     .catch((error) => {
         console.error('Error:', error);
-        alert('서버 오류가 발생했습니다. 나중에 다시 시도해 주세요.');
     });
 }
 
