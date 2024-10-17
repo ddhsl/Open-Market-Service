@@ -45,23 +45,23 @@
                     <span>17,500</span>
                     <span>원</span>
                 </div>
-                <div class="quantity">
+                <div class="aboutProduct">
                     <p>택배배송 / 무료배송</p>
                     <div class="quantity-btn">
                         <button>
-                            <img src="/assets/icon-minus-line.svg" alt="">
+                            <img src="/assets/icon-minus-line.svg" alt="" class="minus">
                         </button>
-                        <div>1</div>
+                        <div class="quantity">1</div>
                         <button>
-                            <img src="/assets/icon-plus-line.svg" alt="">
+                            <img src="/assets/icon-plus-line.svg" alt="" class="plus">
                         </button>
                     </div>
                 </div>
                 <div class="info">
                     <p>총 상품 금액</p>
-                    <p>총 수량 <span>1</span>개</p>
+                    <p>총 수량 <span class="totalQuantity">1</span>개</p>
                     <div>
-                        <span>17,500</span>
+                        <span class="totalPrice">17,500</span>
                         <span>원</span>
                     </div>
                 </div>
@@ -79,6 +79,17 @@
             </ul>
         </section>
     </main>
+    <dialog class="login-dialog">
+        <div>
+            <img src="/assets/icon-delete.svg" alt="창닫기" class="delete">
+            <p>로그인이 필요한 서비스입니다.</p>
+            <p>로그인 하시겠습니까?</p>
+        </div>
+        <div class="answer">
+            <button class="close">아니오</button>
+            <button class="goToLogin">예</button>
+        </div>
+    </dialog>    
     <script src="/js/details.js"></script>
 </body>
 </html>
