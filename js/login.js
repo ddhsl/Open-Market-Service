@@ -55,6 +55,14 @@ function tryLogin() {
     if (data.access) {
         localStorage.setItem('access_token', data.access);
         localStorage.setItem('refresh_token', data.refresh);
+
+        //추가
+        const user = data.user; 
+        console.log('Username:', user.username);
+        console.log('Name:', user.name);
+        console.log('Phone Number:', user.phone_number);
+        console.log('User Type:', user.user_type);
+
         window.location.href = '/pages/product_list.html'; 
     } else if (data.error) {
         alert.style.display = 'block';
