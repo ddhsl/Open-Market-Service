@@ -58,9 +58,6 @@ header form > input {
     background-repeat: no-repeat;
     background-position: center right 22px;
     background-size: 28px;
-}
-
-header form > input::placeholder {
     padding-left: 22px;
 }
 
