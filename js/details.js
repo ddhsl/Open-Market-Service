@@ -2,7 +2,7 @@ const logo = document.querySelector('.logo');
 const login = document.querySelector('.login');
 
 logo.addEventListener('click', () => {
-    window.location.href = '/pages/product_list.html';
+    window.location.href = '/pages/main.html';
 });
 
 login.addEventListener('click', () => {

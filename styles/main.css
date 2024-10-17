@@ -78,9 +78,17 @@ header nav ul li button {
     gap: 4px;
 }
 
-header nav ul li button p {
+header nav ul li p {
     color: var(--sub-color);
     font-size: 12px;
+    text-align: center;
+}
+
+header nav ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
 }
 
 

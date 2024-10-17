@@ -6,7 +6,7 @@ const inputs = document.querySelectorAll('input');
 const logo = document.querySelector('.logo');
 
 logo.addEventListener('click', () => {
-    window.location.href = '/pages/product_list.html'
+    window.location.href = '/pages/main.html'
 });
 
 // 각 필드에 대해 입력 여부 유효성 검사

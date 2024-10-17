@@ -7,21 +7,9 @@ const alert = document.querySelector('.alertMsg');
 const logo = document.querySelector('.logo');
 
 logo.addEventListener('click', () => {
-    window.location.href = '/pages/product_list.html'
+    window.location.href = '/pages/main.html'
 });
 
-// 로그인 타입 부여
-let loginType = '';
-
-// 구매자 로그인 버튼 클릭 이벤트
-buyer.addEventListener('click', () => {
-    loginType = 'BUYER';
-});
-
-// 판매자 로그인 버튼 클릭 이벤트
-seller.addEventListener('click', () => {
-    loginType = 'SELLER';
-});
 
 // 로그인 버튼 클릭 이벤트
 loginBtn.addEventListener('click', (event) => {
@@ -46,37 +34,40 @@ loginBtn.addEventListener('click', (event) => {
     } 
     else {
         // 로그인 요청
-        handleLogin();
+        tryLogin();
     }
 });
 
 // 로그인 요청 함수
-function handleLogin() {
+function tryLogin() {
     fetch('https://estapi.openmarket.weniv.co.kr/accounts/login/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            username: username.value,
-            password: password.value,
-            login_type: loginType,
-        })
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        username: username.value,
+        password: password.value,
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            window.location.href = '/pages/product_list.html'; 
-        } else {
-            alert.style.display = 'block';
-            alert.textContent = '아이디 또는 비밀번호가 일치하지 않습니다.';
-            username.value = ''; 
-            password.value = ''; 
-            password.focus();
-        }
-    })
-    .catch((error) => {
-        console.error(error);
-    });
+})
+.then(response => response.json())
+.then(data => {
+    if (data.access) {
+        localStorage.setItem('access_token', data.access);
+        localStorage.setItem('refresh_token', data.refresh);
+        window.location.href = '/pages/product_list.html'; 
+    } else if (data.error) {
+        alert.style.display = 'block';
+        alert.textContent = '아이디 또는 비밀번호가 일치하지 않습니다.';
+        username.value = '';
+        password.value = '';
+        password.focus();
+    }
+})
+.catch((error) => {
+    console.error('Error:', error);
+});
+    
 }
+
 
