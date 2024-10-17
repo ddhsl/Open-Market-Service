@@ -3,9 +3,13 @@ const password = document.querySelector('#pw');
 const pwCheck = document.querySelector('.pwCheck');
 const alertMsgs = document.querySelectorAll('.alertMsg');
 const inputs = document.querySelectorAll('input');
+const logo = document.querySelector('.logo');
 
+logo.addEventListener('click', () => {
+    window.location.href = '/pages/product_list.html'
+});
 
-// 각 입력 필드에 대해 유효성 검사
+// 각 필드에 대해 입력 여부 유효성 검사
 inputs.forEach((input, index) => {
     const alertMsg = alertMsgs[index]; // 해당 인덱스의 경고 메시지 선택
 
@@ -52,6 +56,7 @@ inputs.forEach((input, index) => {
 const idPattern = /^[A-Za-z0-9]{1,20}$/;
 // 비밀번호 유효성 검사 정규식 (8자 이상, 영문 대소문자, 숫자, 특수문자 포함)
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
 
 // 아이디 유효성 검사 함수
 function validateId() {
