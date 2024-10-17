@@ -142,7 +142,7 @@ password.addEventListener('blur', () => {
 pwCheck.addEventListener('blur', validatePasswordCheck);
 
 
-// phone number
+// 휴대폰 번호
 const num1 = document.querySelector('.dropdown-btn');
 const dropdown = document.querySelector('.dropdown-content');
 const numbers = document.querySelectorAll('.dropdown-item');
