@@ -10,6 +10,7 @@ login.addEventListener('click', () => {
 });
 
 
+
 // 수량, 가격 반영
 const minusBtn = document.querySelector('.minus');
 const plusBtn = document.querySelector('.plus');
