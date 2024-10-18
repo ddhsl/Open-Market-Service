@@ -130,7 +130,7 @@ if (accessToken) {
 // 바깥 부분 클릭 시 유저 메뉴 숨기기
 document.addEventListener('click', (event) => {
     const isClickInsideUserMenu = userMenu.contains(event.target);
-    const isClickInsideLoginBtn = loginBtn.contains(event.target);
+    const isClickInsideLoginBtn = login.contains(event.target);
     
     // 유저 메뉴와 로그인 버튼이 아닌 경우
     if (!isClickInsideUserMenu && !isClickInsideLoginBtn) {
