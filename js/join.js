@@ -79,6 +79,7 @@ function validateId() {
     }
 }
 
+
 // 중복확인
 const idCheckBtn = document.querySelector('.idCheck');
 
