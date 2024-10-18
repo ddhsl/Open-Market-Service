@@ -98,19 +98,20 @@ function checkIdDuplicate(id) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            username: username.value,
+            username: id,
         })
     })
     .then(response => response.json())
     .then(data => {
-        if (data.available) {
-            idAlertMsg.style.display = 'block';
+        if (data.message === "사용 가능한 아이디입니다.") {
             idAlertMsg.textContent = '멋진 아이디네요.:)';
             idAlertMsg.style.color = '#21BF48';
+            idAlertMsg.style.display = 'block';
             username.classList.remove('error');
         } else {
-            idAlertMsg.style.display = 'block';
             idAlertMsg.textContent = '이미 사용 중인 아이디입니다.';
+            idAlertMsg.style.color = '#eb5757';
+            idAlertMsg.style.display = 'block';
             username.classList.add('error');
         }
     })
@@ -293,7 +294,7 @@ function updateJoinButtonState() {
 // 회원가입 요청 함수
 function trySignUp() {
     const phone_number = `${num1.textContent}${num2.value}${num3.value}`; 
-    fetch('https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup', {
+    fetch('https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
