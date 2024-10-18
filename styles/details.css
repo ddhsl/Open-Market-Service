@@ -59,6 +59,40 @@ header form > input {
     padding-left: 22px;
 }
 
+.userMenu {
+    width: 130px;
+    height: 108px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 25%);
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    display: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.myPage {
+    margin-bottom: 8px;
+}
+
+.myPage, .logout {
+    width: 110px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #fff;
+    font-weight: 500;
+    color: var(--sub-color);
+    font-size: 16px;
+}
+
+.myPage:hover, .logout:hover {
+    border: 1px solid var(--sub-color);
+    color: #000;
+}
+
 
 /*nav*/
 header nav ul {
@@ -74,9 +108,17 @@ header nav ul li button {
     gap: 4px;
 }
 
-header nav ul li button p {
+header nav ul li p {
     color: var(--sub-color);
     font-size: 12px;
+    text-align: center;
+}
+
+header nav ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
 }
 
 
