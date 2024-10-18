@@ -73,7 +73,10 @@ const deleteBtn = loginDialog.querySelector('.delete');
 const closeBtn = loginDialog.querySelector('.close');
 const goToLoginBtn = loginDialog.querySelector('.goToLogin');
 
+const accessToken = localStorage.getItem('access_token');
+
 // 모달 열기
+if (!accessToken){
 cartBtn.addEventListener('click', () => {
     loginDialog.showModal();
 });
@@ -98,6 +101,7 @@ closeBtn.addEventListener('click', () => {
 goToLoginBtn.addEventListener('click', () => {
     window.location.href = '/pages/login.html';
 });
+};
 
 
 
