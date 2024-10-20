@@ -52,7 +52,7 @@ header form > input {
     border: 2px solid var(--main-color);
     border-radius: 50px;
     color: var(--sub-color);
-    background-image: url(/assets/search.png);
+    background-image: url(../assets/search.png);
     background-repeat: no-repeat;
     background-position: center right 22px;
     background-size: 28px;

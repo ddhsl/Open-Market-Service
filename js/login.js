@@ -7,7 +7,7 @@ const alert = document.querySelector('.alertMsg');
 const logo = document.querySelector('.logo');
 
 logo.addEventListener('click', () => {
-    window.location.href = '/pages/main.html'
+    window.location.href = '../pages/main.html'
 });
 
 
@@ -62,7 +62,7 @@ function tryLogin() {
         console.log('Phone Number:', user.phone_number);
         console.log('User Type:', user.user_type);
 
-        window.location.href = '/pages/main.html'; 
+        window.location.href = '../pages/main.html'; 
     } else if (data.error) {
         alert.style.display = 'block';
         alert.textContent = '아이디 또는 비밀번호가 일치하지 않습니다.';

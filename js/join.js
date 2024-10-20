@@ -7,7 +7,7 @@ const logo = document.querySelector('.logo');
 const fullName = document.querySelector('#name');
 
 logo.addEventListener('click', () => {
-    window.location.href = '/pages/main.html'
+    window.location.href = '../pages/main.html'
 });
 
 
@@ -129,7 +129,7 @@ function validatePassword() {
 
     if (pwValue === '') {
         pwAlertMsg.style.display = 'none';
-        password.style.backgroundImage = 'url(/assets/icon-check-off.svg)';
+        password.style.backgroundImage = 'url(../assets/icon-check-off.svg)';
         password.classList.remove('error'); // 입력이 없을 때 테두리 리셋
         return false;
     }
@@ -137,12 +137,12 @@ function validatePassword() {
     if (!passwordPattern.test(pwValue)) {
         pwAlertMsg.style.display = 'block';
         pwAlertMsg.textContent = '8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.';
-        password.style.backgroundImage = 'url(/assets/icon-check-off.svg)';
+        password.style.backgroundImage = 'url(../assets/icon-check-off.svg)';
         password.classList.add('error'); // 오류 시 빨간 테두리 추가
         return false;
     } else {
         pwAlertMsg.style.display = 'none';
-        password.style.backgroundImage = 'url(/assets/icon-check-on.svg)';
+        password.style.backgroundImage = 'url(../assets/icon-check-on.svg)';
         password.classList.remove('error'); // 유효성 통과 시 기본 테두리 색으로 리셋
         return true;
     }
@@ -156,7 +156,7 @@ function validatePasswordCheck() {
 
     if (pwCheckValue === '') {
         pwCheckAlertMsg.style.display = 'none';
-        pwCheck.style.backgroundImage = 'url(/assets/icon-check-off.svg)';
+        pwCheck.style.backgroundImage = 'url(../assets/icon-check-off.svg)';
         pwCheck.classList.remove('error'); // 기본 테두리 색으로 리셋
         return false;
     }
@@ -164,12 +164,12 @@ function validatePasswordCheck() {
     if (pwCheckValue !== pwValue) {
         pwCheckAlertMsg.style.display = 'block';
         pwCheckAlertMsg.textContent = '비밀번호가 일치하지 않습니다.';
-        pwCheck.style.backgroundImage = 'url(/assets/icon-check-off.svg)';
+        pwCheck.style.backgroundImage = 'url(../assets/icon-check-off.svg)';
         pwCheck.classList.add('error'); // 오류 시 빨간 테두리 추가
         return false;
     } else {
         pwCheckAlertMsg.style.display = 'none';
-        pwCheck.style.backgroundImage = 'url(/assets/icon-check-on.svg)';
+        pwCheck.style.backgroundImage = 'url(../assets/icon-check-on.svg)';
         pwCheck.classList.remove('error'); // 유효성 통과 시 기본 테두리 색으로 리셋
         return true;
     }
@@ -196,6 +196,7 @@ pwCheck.addEventListener('blur', () => {
 
 // 휴대폰 번호 유효성 검사
 const num1 = document.querySelector('.dropdown-btn');
+const nums = num1.querySelector('span');
 const dropdown = document.querySelector('.dropdown-content');
 const numbers = document.querySelectorAll('.dropdown-item');
 const num2 = document.querySelector('#num2');
@@ -294,7 +295,7 @@ function updateJoinButtonState() {
 
 // 회원가입 요청 함수
 function trySignUp() {
-    const phone_number = `${num1.textContent}${num2.value}${num3.value}`; 
+    const phone_number = `${nums.textContent}${num2.value}${num3.value}`; 
     fetch('https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/', {
         method: 'POST',
         headers: {
@@ -309,6 +310,7 @@ function trySignUp() {
     })
     .then(response => response.json())
     .then(data => {
+        console.log(data);
         if (data.username) {
             const user = {
                 username: data.username,
@@ -324,7 +326,7 @@ function trySignUp() {
             
             alert('회원가입이 성공적으로 완료되었습니다!');
             localStorage.setItem('user_info', JSON.stringify(user)); // 사용자 정보 저장
-            window.location.href = '/pages/login.html'; 
+            window.location.href = '../pages/login.html'; 
         } else {
             alert('회원가입에 실패했습니다. 다시 시도해 주세요.');
         }

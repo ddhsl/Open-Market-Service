@@ -146,7 +146,7 @@ input, .dropdown-btn, .dropdown-content  {
 }
 
 #pw, #pw2 {
-    background-image: url(/assets/icon-check-off.svg);
+    background-image: url(../assets/icon-check-off.svg);
     background-repeat: no-repeat;
     background-position: right 13px center;
 }
@@ -230,7 +230,7 @@ input, .dropdown-btn, .dropdown-content  {
 
 .agree{
     margin: 14px auto 34px;
-    background-image: url(/assets/check-box.svg);
+    background-image: url(../assets/check-box.svg);
     background-repeat: no-repeat;
     background-position: left 2px;
     line-height: 20.03px;
@@ -239,7 +239,7 @@ input, .dropdown-btn, .dropdown-content  {
 }
 
 .agree.checked {
-    background-image: url(/assets/check-fill-box.svg); /* 체크된 이미지 */
+    background-image: url(../assets/check-fill-box.svg); /* 체크된 이미지 */
 }
 
 

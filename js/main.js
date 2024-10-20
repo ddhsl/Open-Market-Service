@@ -8,31 +8,31 @@ const userMenu = document.querySelector('.userMenu');
 const shoppingIcon = document.querySelector('.shoppingIcon');
 
 logo.addEventListener('click', () => {
-    window.location.href = '/pages/main.html';
+    window.location.href = '../pages/main.html';
 });
 
 blanket.addEventListener('click', () => {
-    window.location.href = '/pages/details.html';
+    window.location.href = '../pages/details.html';
 });
 
 // 구매회원전용
 const accessToken = localStorage.getItem('access_token');
 
-keepBtn.addEventListener('click', () => {
-    shoppingIcon.src = '/assets/icon-shopping-cart-2.svg';
-    forProduct.style.color = 'var(--main-color)';
-});
-
 if (accessToken) {
     forUser.textContent = '마이페이지';
     loginBtn.addEventListener('click', () => {
         userMenu.style.display = 'block'; 
-        document.querySelector('.userIcon').src = '/assets/icon-user-2.svg'
+        document.querySelector('.userIcon').src = '../assets/icon-user-2.svg'
         forUser.style.color = 'var(--main-color)';
+        
+    keepBtn.addEventListener('click', () => {
+        shoppingIcon.src = '/assets/icon-shopping-cart-2.svg';
+        forProduct.style.color = 'var(--main-color)';
+        });
     });
 } else {
     loginBtn.addEventListener('click', () => {
-        window.location.href = '/pages/login.html';
+        window.location.href = '../pages/login.html';
     });
 };
 
@@ -44,7 +44,7 @@ document.addEventListener('click', (event) => {
     // 유저 메뉴와 로그인 버튼이 아닌 경우
     if (!isClickInsideUserMenu && !isClickInsideLoginBtn) {
         userMenu.style.display = 'none'; 
-        document.querySelector('.userIcon').src = '/assets/icon-user.svg';
+        document.querySelector('.userIcon').src = '../assets/icon-user.svg';
         forUser.style.color = 'var(--sub-color)';
     }
 });
@@ -59,5 +59,5 @@ logoutBtn.addEventListener('click', () => {
     localStorage.removeItem('refresh_token');
 
     // 로그아웃 후 메인 페이지로 리다이렉트
-    window.location.href = '/pages/main.html';
+    window.location.href = '../pages/main.html';
 });
